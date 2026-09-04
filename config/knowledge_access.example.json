@@ -1,0 +1,21 @@
+{
+  "default_access": "private",
+  "default_allowed_contacts": [],
+  "files": {
+    "about_me.md": {
+      "access": "allowlist",
+      "allowed_contacts": ["zhangsan", "张三"],
+      "sensitivity": "normal"
+    },
+    "public_interests.txt": {
+      "access": "all",
+      "allowed_contacts": [],
+      "sensitivity": "normal"
+    },
+    "private_profile.json": {
+      "access": "allowlist",
+      "allowed_contacts": ["mama", "妈妈"],
+      "sensitivity": "sensitive"
+    }
+  }
+}

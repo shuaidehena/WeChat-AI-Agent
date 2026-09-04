@@ -1,0 +1,30 @@
+# WeChat AI Agent — Docker Compose
+#
+# 说明：
+#   - llm-gateway 可以跑在 Docker 里（Linux 容器）
+#   - 微信 OCR / 键鼠 Agent 必须在 Windows 宿主机运行（见 scripts/deploy.ps1）
+#
+# 用法：
+#   cd docker
+#   docker compose up -d --build
+
+services:
+  llm-gateway:
+    build:
+      context: ./llm-gateway
+      dockerfile: Dockerfile
+    container_name: wechat-ai-llm-gateway
+    ports:
+      - "127.0.0.1:${LLM_GATEWAY_PORT:-8000}:8000"
+    env_file:
+      - ../.env
+    environment:
+      # 容器内转发到真正的 DeepSeek API
+      DEEPSEEK_BASE_URL: ${DEEPSEEK_UPSTREAM_URL:-https://api.deepseek.com}
+      DEEPSEEK_MODEL: ${DEEPSEEK_MODEL:-deepseek-chat}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3

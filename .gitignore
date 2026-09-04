@@ -1,0 +1,27 @@
+# 环境变量（含 API Key）
+.env
+
+# Python
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+*.egg-info/
+
+# 调试截图
+debug/
+!debug/.gitkeep
+
+# 日志
+logs/
+*.log
+
+# 缓存数据
+storage/
+
+# 本机窗口坐标
+config/chat_region.json
+
+# IDE
+.vscode/
+.idea/

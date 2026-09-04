@@ -1,0 +1,28 @@
+# Windows UI Automation - 微信窗口控制
+pywinauto==0.6.9
+
+# 模拟键鼠操作 - 发送消息
+pyautogui==0.9.54
+PyGetWindow>=0.0.9,<1.0
+
+# 图像处理 - 截图
+pillow==11.3.0
+numpy>=1.24,<3.0
+
+# OCR 文字识别 - 基于 ONNX Runtime，无需 GPU
+rapidocr-onnxruntime==1.4.4
+
+# 剪贴板操作
+pyperclip>=1.8.0,<2.0
+
+# 中文名 → 拼音 friend_id
+pypinyin>=0.53.0,<1.0
+
+# 向量记忆 - ChromaDB 持久化
+chromadb>=1.0.0,<2.0
+
+# 中文文本嵌入 - ONNX Runtime，与 rapidocr 一致
+fastembed>=0.4.0,<1.0
+
+# LLM API（OpenAI 兼容接口：Qwen / Moonshot / DeepSeek / GLM）
+openai>=1.0.0,<3.0
